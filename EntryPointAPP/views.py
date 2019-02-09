@@ -7,7 +7,8 @@ def index(request):
 
 def primesUntill(request, offset):
     if request.method == 'GET':
-        return HttpResponse('\n'.join(primes(offset)))
+        json_string = json.dumps({"primes": primes(offset)}, indent=4)
+        return HttpResponse(json_string)
 
 
 def primes(n):
