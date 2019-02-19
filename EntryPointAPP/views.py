@@ -7,6 +7,9 @@ def index(request):
 
 def primesUntill(request, offset):
     if request.method == 'GET':
+        if not 'key' in request.GET:
+            return HttpResponse("NO KEY WAS ENTERED!")
+
         json_string = json.dumps({"primes": primes(offset)}, indent=4)
         return HttpResponse(json_string)
 

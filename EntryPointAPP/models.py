@@ -1,8 +1,8 @@
 from django.db import models
 
 
-class APICall(models.Model):
-    user = models.CharField(max_length=30, null=False)
+class AuthKey(models.Model):
+    key = models.CharField(max_length=40, null=False)
 
     def __str__(self):
-        return "{} - {}".format(self.title, self.artist)
+        return "{}".format(self.key)
